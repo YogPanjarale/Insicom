@@ -1,8 +1,8 @@
 import { auth } from "@lib/firebase";
+import getUserDoc from "@lib/getUserDoc";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Bottom } from "./Bottom";
-
+import { Bottom } from "../Bottom";
 export default function LoginPage() {
 	const [user, loading, error] = useAuthState(auth);
 	const loginWithGoogle = async () => {
@@ -10,7 +10,8 @@ export default function LoginPage() {
 		const result = await signInWithPopup(auth, provider);
 		// The signed-in user info.
 		const user = result.user;
-        console.log(user);
+		const doc = await (await getUserDoc(user.uid)).data();
+        console.log(user,doc);
 	};
 	return (
 		<main className=" w-full h-screen px-8 text-center bg-primary-light font-sans-serif flex flex-col items-center">
@@ -25,7 +26,6 @@ export default function LoginPage() {
 		</main>
 	);
 }
-
 type Props = {
 	text: string;
 	onClick: () => void;

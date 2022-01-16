@@ -1,4 +1,4 @@
-import { Bottom } from "./Bottom";
+import { Bottom } from "../Bottom";
 
 export default function SetUpProfilePage() {
 	return (
