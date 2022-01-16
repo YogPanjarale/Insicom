@@ -2,7 +2,7 @@ import RandomQuote from '@components/RandomQuote'
 import dynamic from 'next/dynamic'
 
 const DynamicComponentWithNoSSR = dynamic(
-  () => import('@components/pages/login'),
+  () => import('@components/pages/logout'),
   { ssr: false ,
     loading: () =><RandomQuote/> 
 }

@@ -3,6 +3,6 @@ const quotes = [
     "MCD sells 1 billion burgers every year"
 ]
 export function getQuote() {
-    const index = Math.floor(Math.random() * quotes.length);
+    const index = Math.floor((new Date().getMinutes()/60) * quotes.length);
     return quotes[index];
 }
