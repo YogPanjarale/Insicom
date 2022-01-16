@@ -1,26 +1,17 @@
-export default function SplashScreen({ quote }: { quote?: string }) {
+import { Bottom } from "./Bottom";
+type Props = {
+	onClick?: () => void;
+};
+export default function SplashScreen({ onClick }: Props) {
 	return (
 		<main className=" w-full h-screen px-10 text-center bg-primary-light font-sans-serif flex flex-col items-center">
-			<div className="h-full flex flex-col justify-center">
-				{!!quote ? (
-					<h3 className="transform text-4xl w-full text-center font-blinker font-semibold">
-						{quote}
-					</h3>
-				) : (
-					<img
-						src="/assets/logo.svg"
-						className="w-48 h-48 mb-8"
-						alt="logo"
-					/>
-				)}
-			</div>
-			<p
-				className={`w-max 
- font-blinker font-normal sm:text-xl 
-         px-4 pb-16  text-xl  text-center `}
+			<div
+				className="h-full flex flex-col justify-center"
+				onClick={onClick}
 			>
-				Insicom | Smarter Everyday
-			</p>
+				<img src="/assets/logo.svg" className="w-44 h-44 " alt="logo" />
+			</div>
+			<Bottom />
 		</main>
 	);
 }
