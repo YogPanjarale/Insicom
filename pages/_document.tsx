@@ -1,4 +1,4 @@
-import { MetaTags } from '@components/metatags'
+import { MetaTags } from '@components/utils/metatags'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document = () => (

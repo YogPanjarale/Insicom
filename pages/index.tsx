@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import SplashScreen from '@components/Splash'
+import SplashScreen from '@components/pages/Splash'
 
 const DynamicComponentWithNoSSR = dynamic(
   () => import('@components/pages/index'),

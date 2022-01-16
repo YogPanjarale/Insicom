@@ -1,5 +1,5 @@
-import QuotePage from '@components/QuotePage'
-import {Page } from '@components/Page'
+import QuotePage from '@components/pages/QuotePage'
+import {Page } from '@components/utils/Page'
 import dynamic from 'next/dynamic'
 import { getQuote } from '@lib/getQuote'
 import RandomQuote from '@components/RandomQuote'

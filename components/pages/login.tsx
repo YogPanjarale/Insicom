@@ -2,7 +2,7 @@ import { auth } from "@lib/firebase";
 import getUserDoc from "@lib/getUserDoc";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Bottom } from "../Bottom";
+import { Bottom } from "../utils/Bottom";
 export default function LoginPage() {
 	const [user, loading, error] = useAuthState(auth);
 	const loginWithGoogle = async () => {

@@ -1,4 +1,4 @@
-import { Bottom } from "./Bottom";
+import { Bottom } from "../utils/Bottom";
 type Props = {
 	onClick?: () => void;
 };

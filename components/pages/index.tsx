@@ -2,8 +2,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { auth } from "@lib/firebase";
 import {useAuthState}from 'react-firebase-hooks/auth'
-import SplashScreen from "@components/Splash";
-import QuotePage from "@components/QuotePage";
+import SplashScreen from "@components/pages/Splash";
+import QuotePage from "@components/pages/QuotePage";
 import { useRouter } from "next/router";
 
 function Index() {
