@@ -1,10 +1,10 @@
 import { auth } from "@lib/firebase";
-import getUserDoc from "@lib/getUserDoc";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Bottom } from "../utils/Bottom";
 import { Button } from "../Button";
 import { Router, useRouter } from "next/router";
+import repo from "@lib/user_repo";
 export default function LoginPage() {
 	const router = useRouter();
 	const loginWithGoogle = async () => {
@@ -14,7 +14,7 @@ export default function LoginPage() {
 
 		// The signed-in user info.
 		const user = result.user;
-		const doc =  (await getUserDoc(user.uid)).data();
+		const doc =  (await repo.getUserDoc(user.uid)).data();
 		if(!doc){
 			console.log("User not found");
 			router.push("/setup-profile");
