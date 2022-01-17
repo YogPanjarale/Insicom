@@ -23,6 +23,7 @@ export default function SetUpProfilePage() {
 	// 		return
 	// 	}
 	// }
+			
 	function trimAll(){
 		setName(name.trim());
 		setUsername(username.trim());
@@ -34,12 +35,13 @@ export default function SetUpProfilePage() {
 			return;
 		}
 		const userDoc = (await repo.getUserDoc(user!.uid)).data();
+		const profilePic = !!userDoc? userDoc?.profilePic: user?.photoURL||"";
 		const newUserDoc = {
 			...userDoc,
 			name,
 			username,
 			bio,
-			// profilePic: user!.photoURL||""
+			profilePic: profilePic || "",
 		};
 		if (!userDoc) {
 			console.log("User not found");

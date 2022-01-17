@@ -1,4 +1,4 @@
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc,setDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
 class UserRepo {
@@ -11,9 +11,9 @@ class UserRepo {
         return updateDoc(userRef,userDoc)
     }
     createUserDoc(userId: string,userDoc: any) {
-        const userRef = doc(db,"users",userId);
-        console.log("[create doc]",userRef)
-        return updateDoc(userRef,userDoc)
+        const userCol = doc(db,"users",userId);
+        console.log("[create doc]",userCol)
+        return setDoc(userCol,userDoc)
     }
 }
 const repo = new UserRepo();
