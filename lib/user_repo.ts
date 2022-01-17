@@ -2,6 +2,12 @@ import { doc, getDoc, updateDoc,setDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
 class UserRepo {
+	async getUser(uid: string) {
+		const userRef = doc(db,"users",uid);
+        const data =  (await getDoc(userRef)).data();
+        return data;
+
+	}
     getUserDoc(userId: string) {
         const userRef = doc(db,"users",userId);
         return getDoc(userRef)  

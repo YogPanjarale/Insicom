@@ -1,6 +1,6 @@
 import { auth, storage } from "@lib/firebase";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Bottom } from "../utils/Bottom";
 import { InputM } from "../Input";
@@ -13,6 +13,7 @@ export default function SetUpProfilePage() {
 	const [name, setName] = useState("");
 	const [username, setUsername] = useState("");
 	const [bio, setBio] = useState("");
+	const [avatar, setAvatar] = useState("");
 	const router = useRouter();
 	if (!user && !loading && !error) {
 		alert("You need to login first");
@@ -23,8 +24,23 @@ export default function SetUpProfilePage() {
 	// 		return
 	// 	}
 	// }
-			
-	function trimAll(){
+	useEffect(() => {
+		let f = async () => {
+			if (!user) {
+				return;
+			}
+			const userData = await repo.getUser(user.uid);
+			if (userData) {
+				setName(userData.name);
+				setUsername(userData.username);
+				setBio(userData.bio);
+				setAvatar(userData.avatar || (user.photoURL ? user.photoURL : ""));
+			}
+		};
+		f();
+	}, [user]);
+
+	function trimAll() {
 		setName(name.trim());
 		setUsername(username.trim());
 		setBio(bio.trim());
@@ -35,7 +51,9 @@ export default function SetUpProfilePage() {
 			return;
 		}
 		const userDoc = (await repo.getUserDoc(user!.uid)).data();
-		const profilePic = !!userDoc? userDoc?.profilePic: user?.photoURL||"";
+		const profilePic = !!userDoc
+			? userDoc?.profilePic
+			: user?.photoURL || "";
 		const newUserDoc = {
 			...userDoc,
 			name,
@@ -46,7 +64,7 @@ export default function SetUpProfilePage() {
 		if (!userDoc) {
 			console.log("User not found");
 			if (!isEdit) {
-				repo.createUserDoc(user!.uid,newUserDoc);
+				repo.createUserDoc(user!.uid, newUserDoc);
 			}
 			return;
 		}
@@ -75,7 +93,7 @@ export default function SetUpProfilePage() {
 						<div className="flex justify-center space-y-2">
 							<img
 								className="w-32 h-32 rounded-full"
-								src={user!.photoURL || ""}
+								src={avatar}
 								alt="profile"
 							/>
 						</div>
