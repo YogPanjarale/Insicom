@@ -9,7 +9,9 @@ export default function LoginPage() {
 	const router = useRouter();
 	const loginWithGoogle = async () => {
 		const provider = new GoogleAuthProvider();
-		const result = await signInWithPopup(auth, provider);
+		const result = await signInWithPopup(auth, provider).catch(e=>{console.error(e); return null});
+		if (!result) return
+
 		// The signed-in user info.
 		const user = result.user;
 		const doc =  (await getUserDoc(user.uid)).data();
