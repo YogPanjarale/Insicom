@@ -4,8 +4,10 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import QuotePage from "./QuotePage";
 import { useEffect, useState } from "react";
 import HeadBoard from "@components/Headboard";
+import { useRouter } from "next/router";
 
 export default function Home() {
+    const router = useRouter();
 	const [user_, loading, error] = useAuthState(auth);
     const [user,setUser] = useState<User>();
     useEffect(() => {
@@ -28,5 +30,5 @@ export default function Home() {
     }
 
    
-   return <QuotePage quote={"Nothing here 😕 " }/>;
+   return <QuotePage quote={"Nothing here 😕 for you login First !" } onClick={()=>router.push("/login")}/>;
 }

@@ -21,6 +21,9 @@ export default function LoginPage() {
 		if (!doc) {
 			console.log("User not found");
 			router.push("/setup-profile");
+		}else{
+			console.log("User found");
+			router.push("/");
 		}
 		console.log(user, doc);
 	};
