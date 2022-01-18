@@ -25,7 +25,7 @@ export default function Home() {
 	}
 	if (!!user) {
 		return (
-			<div className="h-screen bg-primary-light flex flex-col justify-between">
+			<div className="h-screen bg-primary-light flex flex-col ">
 				<HeadBoard
 					profilePicture={user.photoURL || ""}
 					onClick={() => {
@@ -33,6 +33,19 @@ export default function Home() {
 						console.log("Edit Page");
 					}}
 				/>
+				<div className="h-full bg-primary-light px-4 py-4 font-blinker flex flexwrap flex-col max-h-[80vh] space-y-4">
+					<h3 className="text-2xl text-black my-2"> For you {user.displayName?.split(" ")[0]} 👇</h3>
+					<div className="border border-black w-full  p-2 bg-white">
+						<div className="h-24"></div>
+						<h3 className=" text-2xl  font-medium text-black">How to get started with design</h3>
+						<span className="font-light text-xs leading-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac tortor ac mi varius ultricies sit amet sit amet ex. Aliquam neque neque, aliquam non facilisis vitae, dapibus in dolor. Suspendisse elementum, mi non imperdiet feugiat, massa nunc auctor eros,</span>
+					</div>
+					<div className="border border-black w-full  p-2 bg-white">
+						<div className="h-24"></div>
+						<h3 className=" text-2xl  font-medium text-black">How to get started with design</h3>
+						<span className="font-light text-xs leading-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac tortor ac mi varius ultricies sit amet sit amet ex. Aliquam neque neque, aliquam non facilisis vitae, dapibus in dolor. Suspendisse elementum, mi non imperdiet feugiat, massa nunc auctor eros,</span>
+					</div>
+				</div>
                 <Downboard/>
 			</div>
 		);
