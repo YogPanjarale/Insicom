@@ -12,10 +12,15 @@ function Index() {
 	const router = useRouter();
 	useEffect(() => {
 			console.log(user, loading, error);
+			if (!loading&& !error){
 			if(!!!user){
 				console.log("Login Page");
 				router.push("/login");
+			}else{
+				console.log("Home Page");
+				router.push("/home");
 			}
+		}
 		}, [user, loading, error]);
 	return (
 		<div className=" min-h-screen">
@@ -33,13 +38,3 @@ export type Props = {
 	children: React.ReactNode;
 }
 export default Index
-// export default function ClientSafe(props:any) {
-// 	const [isBrowser, setIsBrowser] = useState(false);
-// 	useEffect(() => {
-// 		if (typeof window !== "undefined") {
-// 			setIsBrowser(true)
-// 		}
-// 	}, []);
-// 	 return isBrowser? <Index {...props} />:
-// 	 <Page><QuotePage quote="Hope you are well"/></Page>;
-// }
