@@ -2,7 +2,7 @@ import { auth, storage } from "@lib/firebase";
 import { useRouter } from "next/router";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Bottom } from "../utils/Bottom";
+import { Bottom } from "../Bottom";
 import { InputM } from "../Input";
 import { Button } from "@components/Button";
 import repo from "@lib/user_repo";

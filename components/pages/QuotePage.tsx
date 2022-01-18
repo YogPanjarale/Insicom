@@ -1,4 +1,4 @@
-import { Bottom } from "../utils/Bottom";
+import { Bottom } from "../Bottom";
 
 export default function QuotePage({ quote }: { quote: string }) {
 	return (

@@ -1,5 +1,5 @@
 import { auth } from "@lib/firebase";
-import { Bottom } from "../utils/Bottom";
+import { Bottom } from "../Bottom";
 import { Button } from "../Button";
 import { useRouter } from "next/router";
 export default function LoginPage() {
