@@ -42,7 +42,7 @@ const ChooseInterestPage = () => {
 				{topics.map((topic, i) => {
 					return (
 						<button
-							className={`focus:border-2  border border-solid border-black shadow-rose-100 shadow-lg	p-2 py-4 ${interests.includes(i) ? "shadow-2xl border-2 scale-y-105 bg-white" : ""}`}
+							className={`focus:border-2  border border-solid border-black shadow-rose-100 shadow-lg	p-2 py-4 ${interests.includes(i) ? "shadow-2xl border-2  bg-white" : ""}`}
 							key={"k" + i}
                             onClick={() => {
                                 toggleInterest(i);
