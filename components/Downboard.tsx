@@ -13,10 +13,14 @@ const Item = ({icon, text, onClick}:Props) => {
         </div>
     );
 };
-function Downboard({}){
+type Onclick = () => void;
+type DownBoardProps = {
+    onclicks :Onclick[];
+}
+function Downboard({onclicks}:DownBoardProps) {
     return (
         <nav className="flex flex-row justify-between bg-pink-50 border border-black border-opacity-20 px-4 py-4">
-            <Item icon="/assets/home.svg" text="Home" />
+            <Item icon="/assets/home.svg" text="Home" onClick={onclicks[0]} />
             <Item icon="/assets/building.png" text="Build" />
             <Item icon="/assets/search.svg" text="Search" />
             <Item icon="/assets/bell.svg" text="Notifications" />
