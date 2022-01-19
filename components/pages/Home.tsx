@@ -29,8 +29,8 @@ export default function Home() {
 				<HeadBoard
 					profilePicture={user.photoURL || ""}
 					onClick={() => {
-						//TODO: Edit page
 						console.log("Edit Page");
+						router.push("/edit-profile")
 					}}
 				/>
 				<div className="h-full bg-primary-light px-4 py-4 font-blinker flex flexwrap flex-col max-h-[80vh] space-y-4">
